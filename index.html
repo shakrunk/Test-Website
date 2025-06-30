@@ -111,8 +111,6 @@
     </div>
 
     <header>
-        <a href="#main" id="skip2main" class="btn">Skip to Main Content</a>
-        <a href="#footer" id="skip2footer" class="btn">Skip to Footer Navigation</a>
         <h2><a href="/">Bio And Engineering Solutions</a></h2>
         <nav role="navigation" aria-label="Main navigation">
             <ul>
@@ -164,7 +162,18 @@
             <h2 id="contactTitle">Contact Us</h2>
             <p>Ready to explore how our bioengineering solutions can benefit your organization? We would love to hear from you.</p>
             
-            <form id="contactForm" class="contact-form" novalidate aria-labelledby="contactTitle">
+            <!-- Fallback message for users with JavaScript disabled -->
+            <noscript>
+                <div class="noscript-message">
+                    <p><strong>JavaScript Required:</strong> Our contact form requires JavaScript to function properly. Please enable JavaScript in your browser, or contact us directly:</p>
+                    <ul>
+                        <li>Email: <a href="mailto:info@beasolutions.org">info@beasolutions.org</a></li>
+                        <li>Phone: <a href="tel:+17207277828">+1 (720) 727-7828</a></li>
+                    </ul>
+                </div>
+            </noscript>
+            
+            <form id="contactForm" class="contact-form" method="post" action="/contact" novalidate aria-labelledby="contactTitle">
                 <div class="form-group">
                     <label for="name" class="form-label">Full Name *</label>
                     <input type="text" id="name" name="name" class="form-input" required aria-describedby="nameError" autocomplete="name">
@@ -199,7 +208,7 @@
                     <div id="messageError" class="form-error" role="alert" aria-live="polite"></div>
                 </div>
 
-                <button type="submit" class="btn" id="submitBtn">
+                <button type="submit" class="btn" id="submitBtn" disabled>
                     Send Message
                     <span aria-hidden="true">→</span>
                 </button>

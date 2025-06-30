@@ -184,6 +184,9 @@ class AccessibilityManager {
 
         if (!form || !submitBtn) return;
 
+        // Initially disable the submit button
+        this.updateSubmitButtonState();
+
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             this.validateAndSubmitForm(form, submitBtn);
@@ -195,9 +198,55 @@ class AccessibilityManager {
             const field = document.getElementById(fieldId);
             if (field) {
                 field.addEventListener('blur', () => this.validateField(field));
-                field.addEventListener('input', () => this.clearFieldError(field));
+                field.addEventListener('input', () => {
+                    this.clearFieldError(field);
+                    this.updateSubmitButtonState();
+                });
             }
         });
+    }
+
+    updateSubmitButtonState() {
+        const submitBtn = document.getElementById('submitBtn');
+        const requiredFields = ['name', 'email', 'message'];
+        
+        if (!submitBtn) return;
+
+        let allFieldsValid = true;
+        
+        requiredFields.forEach(fieldId => {
+            const field = document.getElementById(fieldId);
+            if (field) {
+                const value = field.value.trim();
+                if (!value || value.length < (fieldId === 'message' ? 10 : 2)) {
+                    allFieldsValid = false;
+                }
+                
+                // Also check for valid email format
+                if (fieldId === 'email' && value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+                    allFieldsValid = false;
+                }
+            }
+        });
+
+        submitBtn.disabled = !allFieldsValid;
+        
+        if (allFieldsValid) {
+            submitBtn.setAttribute('aria-describedby', 'submitReady');
+            if (!document.getElementById('submitReady')) {
+                const description = document.createElement('span');
+                description.id = 'submitReady';
+                description.className = 'sr-only';
+                description.textContent = 'Form is ready to submit';
+                submitBtn.parentNode.appendChild(description);
+            }
+        } else {
+            submitBtn.removeAttribute('aria-describedby');
+            const description = document.getElementById('submitReady');
+            if (description) {
+                description.remove();
+            }
+        }
     }
 
     setupKeyboardNavigation() {
@@ -306,6 +355,10 @@ class AccessibilityManager {
         }
 
         this.displayFieldError(field, errorMessage);
+        
+        // Update submit button state after validation
+        setTimeout(() => this.updateSubmitButtonState(), 0);
+        
         return isValid;
     }
 
