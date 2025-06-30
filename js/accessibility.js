@@ -59,8 +59,34 @@ class AccessibilityManager {
         // Add keyboard event listener for accessibility
         document.addEventListener('keydown', this.handleKeydown);
 
+        // Set up tabindex management for panel content
+        this.setupPanelTabbing();
+
         // Setup preference controls
         this.setupPreferenceControls();
+    }
+
+    setupPanelTabbing() {
+        const panelElements = this.panel.querySelectorAll('input, select, button:not(.accessibility-toggle)');
+        
+        // Initially make panel content non-focusable
+        panelElements.forEach(element => {
+            element.setAttribute('tabindex', '-1');
+        });
+
+        // When panel opens, make content focusable
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'aria-hidden') {
+                    const isHidden = this.panel.getAttribute('aria-hidden') === 'true';
+                    panelElements.forEach(element => {
+                        element.setAttribute('tabindex', isHidden ? '-1' : '0');
+                    });
+                }
+            });
+        });
+
+        observer.observe(this.panel, { attributes: true });
     }
 
     handleToggleClick(event) {
@@ -510,8 +536,11 @@ class AccessibilityManager {
 
     loadUserPreferences() {
         try {
-            // Load saved preferences from localStorage
-            const savedTheme = localStorage.getItem('theme') || 'light';
+            // Detect system theme preference
+            const systemTheme = this.detectSystemTheme();
+            
+            // Load saved preferences from localStorage or use system/defaults
+            const savedTheme = localStorage.getItem('theme') || systemTheme;
             const savedTextSize = localStorage.getItem('textSize') || 'normal';
             const savedHighContrast = localStorage.getItem('highContrast') === 'true';
             const savedReducedMotion = localStorage.getItem('reducedMotion') === 'true';
@@ -523,33 +552,28 @@ class AccessibilityManager {
             this.setReducedMotion(savedReducedMotion);
 
             // Update form controls to reflect saved preferences
-            const themeToggle = document.getElementById('themeToggle');
-            if (themeToggle) {
-                themeToggle.setAttribute('aria-pressed', savedTheme === 'dark');
-            }
-
-            const footerThemeToggle = document.getElementById('toggleTheme');
-            if (footerThemeToggle) {
-                footerThemeToggle.checked = savedTheme === 'dark';
-            }
+            this.updateThemeControls(savedTheme);
 
             const textSizeSelect = document.getElementById('textSize');
             if (textSizeSelect) {
                 textSizeSelect.value = savedTextSize;
             }
 
-            const highContrastCheckbox = document.getElementById('highContrast');
-            if (highContrastCheckbox) {
-                highContrastCheckbox.checked = savedHighContrast;
+            const highContrastToggle = document.getElementById('highContrast');
+            if (highContrastToggle) {
+                highContrastToggle.setAttribute('aria-pressed', savedHighContrast);
             }
 
-            const reducedMotionCheckbox = document.getElementById('reducedMotion');
-            if (reducedMotionCheckbox) {
-                reducedMotionCheckbox.checked = savedReducedMotion;
+            const reducedMotionToggle = document.getElementById('reducedMotion');
+            if (reducedMotionToggle) {
+                reducedMotionToggle.setAttribute('aria-pressed', savedReducedMotion);
             }
 
         } catch (error) {
             console.warn('Error loading user preferences:', error);
+            // Fallback to defaults if there's an error
+            this.setTheme('dark');
+            this.updateThemeControls('dark');
         }
     }
 

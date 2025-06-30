@@ -71,6 +71,9 @@
             <span class="accessibility-text">Accessibility</span>
         </button>
         
+        <!-- Skip link for accessibility panel when open -->
+        <a href="#accessibilityTitle" class="skip-link panel-skip-link" id="panelSkipLink">Skip to Accessibility Options</a>
+        
         <div class="accessibility-content">
             <h2 id="accessibilityTitle">Accessibility Options</h2>
             
@@ -85,24 +88,24 @@
             </div>
 
             <div class="form-group">
-                <label class="checkbox-label">
-                    <input type="checkbox" id="highContrast" aria-describedby="contrastDesc">
-                    <span class="checkbox-text">High Contrast Mode</span>
-                </label>
+                <label for="highContrast" class="form-label toggle-label">High Contrast Mode</label>
+                <button id="highContrast" class="toggle-switch" role="switch" aria-pressed="false" aria-describedby="contrastDesc">
+                    <span class="sr-only">Toggle high contrast mode</span>
+                </button>
                 <p id="contrastDesc" class="form-description">Increase contrast for better visibility</p>
             </div>
 
             <div class="form-group">
-                <label class="checkbox-label">
-                    <input type="checkbox" id="reducedMotion" aria-describedby="motionDesc">
-                    <span class="checkbox-text">Reduce Motion</span>
-                </label>
+                <label for="reducedMotion" class="form-label toggle-label">Reduce Motion</label>
+                <button id="reducedMotion" class="toggle-switch" role="switch" aria-pressed="false" aria-describedby="motionDesc">
+                    <span class="sr-only">Toggle reduced motion</span>
+                </button>
                 <p id="motionDesc" class="form-description">Minimize animations and transitions</p>
             </div>
 
-            <div class="theme-toggle-wrapper">
-                <label for="themeToggle" class="form-label">Dark Mode</label>
-                <button id="themeToggle" class="theme-toggle" role="switch" aria-pressed="false" aria-describedby="themeDesc">
+            <div class="form-group">
+                <label for="themeToggle" class="form-label toggle-label">Dark Mode</label>
+                <button id="themeToggle" class="toggle-switch" role="switch" aria-pressed="false" aria-describedby="themeDesc">
                     <span class="sr-only">Toggle dark mode</span>
                 </button>
                 <p id="themeDesc" class="form-description">Switch between light and dark themes</p>
@@ -111,10 +114,10 @@
     </div>
 
     <header>
-        <h2><a href="index.html">Bio And Engineering Solutions</a></h2>
+        <h2><a href="/"><img src="images/Logo-Mono.svg" alt="BEA Solutions Logo" class="header-logo">Bio And Engineering Solutions</a></h2>
         <nav role="navigation" aria-label="Main navigation">
             <ul>
-                <li><a href="index.html" aria-current="page">Home</a></li>
+                <li><a href="#" aria-current="page">Home</a></li>
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#expertise">Our Solutions</a></li>
                 <li><a href="#contact">Contact Us</a></li>
@@ -126,7 +129,7 @@
         <!-- Hero Section -->
         <section id="hero" aria-labelledby="heroTitle">
             <div id="heroContent" class="card">
-                <img src="images/Logo-Light.svg" alt="Company Logo" id="heroLogo">
+                <img src="images/Logo-Light.svg" alt="Company Logo" id="heroLogo" class="theme-responsive-logo">
                 <div id="heroText">
                     <h1 id="heroTitle">Bio And Engineering Solutions</h1>
                     <p><em>Building better lives through science and engineering</em></p>
@@ -253,8 +256,6 @@
                     <li><a href="#">Leadership Team</a></li>
                     <li><a href="#">Careers</a></li>
                     <li><a href="#">Non-Discrimination Policy</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Use</a></li>
                 </ul>
             </nav>
     
@@ -280,9 +281,14 @@
                 </ul>
             </nav>
         </div>
+        
+        <hr>
 
         <small>&copy; <time datetime="2025">2025</time> Bio And Engineering Solutions, <abbr
-                title="Limited Liability Company">LLC</abbr>. All rights reserved.</small>
+                title="Limited Liability Company">LLC</abbr>. All rights reserved. | 
+                <a href="#privacy">Privacy Policy</a> | 
+                <a href="#terms">Terms of Use</a>
+        </small>
     </footer>
 
     <!-- Enhanced Structured Data -->
