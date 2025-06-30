@@ -62,7 +62,7 @@
 }
 
 [data-theme="dark"] .theme-responsive-logo {
-    content: url('images/Logo-Dark.svg');
+    content: url('../images/Logo-Dark.svg');
 }
 
 /* ======================================================= */
