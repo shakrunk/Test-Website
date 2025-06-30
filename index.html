@@ -14,6 +14,9 @@
     <meta name="description"
         content="BEA Solutions pioneers innovations in advanced diagnostics, genetic engineering, and bioelectronics to create a healthier future. Explore our groundbreaking work.">
 
+    <!-- Enhanced Security -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data: https:; font-src 'self';">
+
     <!-- ======================================================= -->
     <!--            TECHNICAL SEO INSTRUCTIONS                   -->
     <!-- ======================================================= -->
@@ -51,136 +54,867 @@
     <!-- ======================================================= -->
     <!--            STYLESHEETS & FONTS                          -->
     <!-- ======================================================= -->
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <style>
+/* Enhanced CSS with accessibility improvements */
+
+:root {
+    /* Logo-Inspired Color Palette */
+    --color-primary: #3b53cd;
+    --color-primary-light: #4d70f1;
+    --color-primary-dark: #1d2394;
+    --color-secondary: #cb60f1;
+    --color-secondary-light: #d97df4;
+    --color-secondary-dark: #b048e8;
+    --color-accent: #fadb22;
+    --color-accent-dark: #f5c842;
+    
+    /* Accessible gradient for reduced motion users */
+    --gradient-logo: linear-gradient(135deg, 
+        #fadb22 0%,
+        #fcb548 8%,
+        #ff7f7f 19%,
+        #ff65c0 34%,
+        #ff55ec 43%,
+        #cb60f1 56%,
+        #557cff 85%,
+        #4d70f1 87%,
+        #3b53cd 91%,
+        #1d2394 96%,
+        #07006a 100%);
+    
+    /* High contrast fallback */
+    --gradient-fallback: var(--color-primary);
+    
+    /* Neutral Colors with better contrast ratios */
+    --color-white: #ffffff;
+    --color-gray-50: #f8fafc;
+    --color-gray-100: #f1f5f9;
+    --color-gray-200: #e2e8f0;
+    --color-gray-300: #cbd5e1;
+    --color-gray-400: #94a3b8;
+    --color-gray-500: #64748b;
+    --color-gray-600: #475569;
+    --color-gray-700: #334155;
+    --color-gray-800: #1e293b;
+    --color-gray-900: #0f172a;
+    
+    /* Enhanced text colors for better contrast */
+    --color-text-primary: var(--color-gray-900);
+    --color-text-secondary: var(--color-gray-700);
+    --color-text-muted: var(--color-gray-600);
+    
+    /* Background Colors */
+    --color-bg-primary: var(--color-white);
+    --color-bg-secondary: var(--color-gray-50);
+    --color-bg-accent: var(--color-gray-100);
+    
+    /* Typography */
+    --font-family-primary: 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    --font-family-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+    
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+    --font-size-5xl: 3rem;
+    
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    
+    --line-height-tight: 1.25;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.75;
+    
+    /* Spacing Scale */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-10: 2.5rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+    --space-20: 5rem;
+    --space-24: 6rem;
+    
+    /* Border Radius */
+    --radius-sm: 0.25rem;
+    --radius-md: 0.375rem;
+    --radius-lg: 0.5rem;
+    --radius-xl: 0.75rem;
+    --radius-2xl: 1rem;
+    
+    /* Enhanced shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --shadow-focus: 0 0 0 3px rgb(59 83 205 / 0.3);
+    
+    /* Transitions with reduced motion support */
+    --transition-fast: 150ms ease-in-out;
+    --transition-normal: 250ms ease-in-out;
+    --transition-slow: 350ms ease-in-out;
+    
+    /* Layout */
+    --max-width-container: 1200px;
+    --max-width-prose: 65ch;
+    
+    /* Accessibility features */
+    --focus-outline-width: 3px;
+    --focus-outline-offset: 2px;
+    --min-touch-target: 44px;
+}
+
+/* Dark Theme Variables */
+[data-theme="dark"] {
+    --color-text-primary: var(--color-gray-100);
+    --color-text-secondary: var(--color-gray-200);
+    --color-text-muted: var(--color-gray-300);
+    
+    --color-bg-primary: var(--color-gray-900);
+    --color-bg-secondary: var(--color-gray-800);
+    --color-bg-accent: var(--color-gray-700);
+    
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.4), 0 8px 10px -6px rgb(0 0 0 / 0.4);
+}
+
+/* High contrast mode adjustments */
+@media (prefers-contrast: high) {
+    :root {
+        --color-primary: #000080;
+        --color-primary-dark: #000066;
+        --color-text-secondary: var(--color-gray-800);
+        --color-text-muted: var(--color-gray-700);
+        --gradient-fallback: #000080;
+    }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --transition-fast: 0.01ms;
+        --transition-normal: 0.01ms;
+        --transition-slow: 0.01ms;
+    }
+    
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    /* Show solid color instead of gradient for reduced motion */
+    .gradient-text {
+        background: var(--gradient-fallback) !important;
+        background-clip: text !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+    }
+}
+
+/* Global Styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-normal);
+    line-height: var(--line-height-normal);
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-primary);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+main {
+    flex: 1;
+}
+
+/* Enhanced Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+    color: var(--color-text-primary);
+    margin: 0 0 var(--space-4);
+}
+
+h1 {
+    font-size: var(--font-size-4xl);
+    margin-bottom: var(--space-6);
+}
+
+h2 {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--space-5);
+}
+
+h3 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-4);
+}
+
+h4 {
+    font-size: var(--font-size-xl);
+}
+
+p {
+    margin: 0 0 var(--space-4);
+    color: var(--color-text-secondary);
+    max-width: var(--max-width-prose);
+}
+
+/* Enhanced Links and Buttons */
+a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    transition: color var(--transition-fast);
+}
+
+a:hover,
+a:focus {
+    color: var(--color-primary-dark);
+}
+
+a:focus-visible {
+    outline: var(--focus-outline-width) solid var(--color-primary);
+    outline-offset: var(--focus-outline-offset);
+    border-radius: var(--radius-sm);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-6);
+    min-height: var(--min-touch-target);
+    min-width: var(--min-touch-target);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    text-decoration: none;
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius-lg);
+    background: var(--color-primary);
+    color: var(--color-white);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    white-space: nowrap;
+}
+
+.btn:hover {
+    background: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+    color: var(--color-white);
+    text-decoration: none;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn:focus-visible {
+    outline: var(--focus-outline-width) solid var(--color-white);
+    outline-offset: 2px;
+    box-shadow: var(--shadow-focus);
+}
+
+/* Skip Links */
+.skip-link {
+    position: absolute;
+    top: -1000px;
+    left: var(--space-4);
+    background: var(--color-primary);
+    color: var(--color-white);
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--font-size-sm);
+    border-radius: var(--radius-md);
+    z-index: 1000;
+    text-decoration: none;
+    font-weight: var(--font-weight-medium);
+}
+
+.skip-link:focus {
+    top: var(--space-4);
+}
+
+/* Enhanced Header */
+header {
+    background: var(--color-bg-primary);
+    border-bottom: 1px solid var(--color-gray-200);
+    padding: var(--space-4) 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    transition: all var(--transition-normal);
+}
+
+header .site-title {
+    margin: 0;
+    padding: 0 var(--space-4);
+    max-width: var(--max-width-container);
+    margin: 0 auto var(--space-4);
+}
+
+header .site-title a {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+header nav {
+    max-width: var(--max-width-container);
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: var(--space-8);
+    flex-wrap: wrap;
+}
+
+header nav a {
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-secondary);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+    text-decoration: none;
+    min-height: var(--min-touch-target);
+    display: flex;
+    align-items: center;
+}
+
+header nav a:hover,
+header nav a:focus {
+    color: var(--color-primary);
+    background: var(--color-bg-accent);
+}
+
+/* Enhanced Sections */
+section {
+    padding: var(--space-16) var(--space-4);
+    max-width: var(--max-width-container);
+    margin: 0 auto;
+}
+
+/* Hero Section with accessibility improvements */
+#hero {
+    background: linear-gradient(
+        135deg,
+        var(--color-bg-secondary) 0%,
+        var(--color-bg-primary) 100%
+    );
+    text-align: center;
+    padding: var(--space-24) var(--space-4);
+    margin: 0;
+    max-width: none;
+    position: relative;
+    overflow: hidden;
+}
+
+#heroContent {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto var(--space-12);
+}
+
+#heroLogo {
+    max-width: 120px;
+    height: auto;
+    margin-bottom: var(--space-6);
+}
+
+.gradient-text {
+    background: var(--gradient-logo);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: clamp(var(--font-size-3xl), 5vw, var(--font-size-5xl));
+    margin-bottom: var(--space-4);
+}
+
+/* Accessible Cards */
+.card {
+    background: var(--color-bg-primary);
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary-light);
+}
+
+.cardList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-8);
+}
+
+/* Contact Form Styles */
+.form-group {
+    margin-bottom: var(--space-5);
+}
+
+.form-label {
+    display: block;
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-2);
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+    width: 100%;
+    padding: var(--space-3);
+    border: 2px solid var(--color-gray-300);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-base);
+    font-family: inherit;
+    background: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    transition: border-color var(--transition-fast);
+    min-height: var(--min-touch-target);
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-focus);
+}
+
+.form-error {
+    color: #dc2626;
+    font-size: var(--font-size-sm);
+    margin-top: var(--space-1);
+    display: none;
+}
+
+.form-error.visible {
+    display: block;
+}
+
+/* Accessibility Panel */
+.accessibility-panel {
+    position: fixed;
+    top: 50%;
+    right: -300px;
+    transform: translateY(-50%);
+    width: 280px;
+    background: var(--color-bg-primary);
+    border: 2px solid var(--color-gray-300);
+    border-right: none;
+    border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    padding: var(--space-6);
+    z-index: 1000;
+    transition: right var(--transition-normal);
+}
+
+.accessibility-panel.open {
+    right: 0;
+}
+
+.accessibility-toggle {
+    position: absolute;
+    left: -50px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    padding: var(--space-3);
+    border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+    cursor: pointer;
+    font-size: var(--font-size-sm);
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    min-height: var(--min-touch-target);
+}
+
+/* Theme Toggle Enhancement */
+.theme-toggle-wrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin: var(--space-4) 0;
+}
+
+.theme-toggle {
+    position: relative;
+    width: 60px;
+    height: 32px;
+    background: var(--color-gray-300);
+    border-radius: 16px;
+    cursor: pointer;
+    transition: background var(--transition-normal);
+    border: none;
+    padding: 0;
+}
+
+.theme-toggle[aria-pressed="true"] {
+    background: var(--color-primary);
+}
+
+.theme-toggle::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 28px;
+    height: 28px;
+    background: var(--color-white);
+    border-radius: 50%;
+    transition: transform var(--transition-normal);
+    box-shadow: var(--shadow-sm);
+}
+
+.theme-toggle[aria-pressed="true"]::before {
+    transform: translateX(28px);
+}
+
+.theme-toggle:focus-visible {
+    outline: var(--focus-outline-width) solid var(--color-primary);
+    outline-offset: var(--focus-outline-offset);
+}
+
+/* Loading States */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+    position: relative;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--color-gray-300);
+    border-top: 2px solid var(--color-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    :root {
+        --space-16: 3rem;
+        --space-20: 4rem;
+        --space-24: 5rem;
+    }
+    
+    header .site-title {
+        text-align: center;
+    }
+    
+    header nav ul {
+        justify-content: center;
+        gap: var(--space-4);
+    }
+    
+    .cardList {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+    }
+    
+    .accessibility-panel {
+        width: 100%;
+        right: -100%;
+        border-radius: 0;
+        border-right: none;
+        border-top: 2px solid var(--color-gray-300);
+        top: auto;
+        bottom: 0;
+        transform: none;
+    }
+    
+    .accessibility-toggle {
+        left: 50%;
+        top: -50px;
+        transform: translateX(-50%);
+        writing-mode: horizontal-tb;
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .accessibility-panel,
+    .accessibility-toggle,
+    .skip-link {
+        display: none;
+    }
+    
+    * {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+    }
+}
+    </style>
 </head>
 
 <body>
-    <header>
-        <a href="#main" id="skip2main" class="btn">Skip to Main Content</a>
-        <a href="#footer" id="skip2footer" class="btn">Skip to Footer Navigation</a>
-        <h2><a href="/">Bio And Engineering Solutions</a></h2>
-        <nav>
+    <!-- Enhanced Skip Navigation -->
+    <a href="#main" class="skip-link">Skip to Main Content</a>
+    <a href="#footer" class="skip-link">Skip to Footer Navigation</a>
+
+    <!-- Accessibility Panel -->
+    <div class="accessibility-panel" id="accessibilityPanel" role="dialog" aria-labelledby="accessibilityTitle" aria-hidden="true">
+        <button class="accessibility-toggle" id="accessibilityToggle" aria-expanded="false" aria-controls="accessibilityPanel">
+            Accessibility
+        </button>
+        <h2 id="accessibilityTitle">Accessibility Options</h2>
+        
+        <div class="form-group">
+            <label for="textSize" class="form-label">Text Size</label>
+            <select id="textSize" class="form-select" aria-describedby="textSizeDesc">
+                <option value="normal">Normal</option>
+                <option value="large">Large</option>
+                <option value="extra-large">Extra Large</option>
+            </select>
+            <p id="textSizeDesc" class="form-description">Adjust text size for better readability</p>
+        </div>
+
+        <div class="form-group">
+            <label for="highContrast" class="form-label">
+                <input type="checkbox" id="highContrast" aria-describedby="contrastDesc">
+                High Contrast Mode
+            </label>
+            <p id="contrastDesc" class="form-description">Increase contrast for better visibility</p>
+        </div>
+
+        <div class="form-group">
+            <label for="reducedMotion" class="form-label">
+                <input type="checkbox" id="reducedMotion" aria-describedby="motionDesc">
+                Reduce Motion
+            </label>
+            <p id="motionDesc" class="form-description">Minimize animations and transitions</p>
+        </div>
+
+        <div class="theme-toggle-wrapper">
+            <label for="themeToggle" class="form-label">Dark Mode</label>
+            <button id="themeToggle" class="theme-toggle" role="switch" aria-pressed="false" aria-describedby="themeDesc">
+                <span class="sr-only">Toggle dark mode</span>
+            </button>
+            <p id="themeDesc" class="form-description">Switch between light and dark themes</p>
+        </div>
+    </div>
+
+    <header role="banner">
+        <h1 class="site-title"><a href="/" aria-label="Bio And Engineering Solutions Homepage">Bio And Engineering Solutions</a></h1>
+        <nav role="navigation" aria-label="Main navigation">
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Our Solutions</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="#" aria-current="page">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#expertise">Our Solutions</a></li>
+                <li><a href="#contact">Contact Us</a></li>
             </ul>
         </nav>
     </header>
 
-    <main id="main">
-        <!-- Hero Section -->
-        <section id="hero">
+    <main id="main" role="main">
+        <!-- Enhanced Hero Section -->
+        <section id="hero" aria-labelledby="heroTitle">
             <div id="heroContent" class="card">
-                <img src="images/Logo-Light.svg" alt="Company Logo" id="heroLogo">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Ccircle cx='60' cy='60' r='50' fill='%233b53cd'/%3E%3Ctext x='60' y='70' text-anchor='middle' fill='white' font-size='24' font-weight='bold'%3EBEA%3C/text%3E%3C/svg%3E" alt="BEA Solutions Logo" id="heroLogo">
                 <div id="heroText">
-                    <h1>Bio And Engineering Solutions</h1>
+                    <h1 id="heroTitle" class="gradient-text">Bio And Engineering Solutions</h1>
                     <p><em>Building better lives through science and engineering</em></p>
                     <hr>
-                    <p>We are dedicated to improving the lives of people around the globe</p>
+                    <p>We are dedicated to improving the lives of people around the globe through innovative bioengineering solutions</p>
                 </div>
             </div>
-            <a href="#" id="hero-btn" class="btn">Explore Our Solutions →</a>
+            <a href="#expertise" id="hero-btn" class="btn" aria-describedby="heroDesc">
+                Explore Our Solutions
+                <span aria-hidden="true">→</span>
+            </a>
+            <p id="heroDesc" class="sr-only">Navigate to our expertise section to learn more about our solutions</p>
         </section>
 
-        <!-- Our Expertise Section -->
-        <section id="expertise">
-            <h2>Our Expertise</h2>
-            <ul class="cardList">
-                <li class="card">
+        <!-- Enhanced Expertise Section -->
+        <section id="expertise" aria-labelledby="expertiseTitle">
+            <h2 id="expertiseTitle">Our Areas of Expertise</h2>
+            <ul class="cardList" role="list">
+                <li class="card" role="listitem">
                     <h3>Advanced Diagnostics</h3>
-                    <p>Combining cutting-edge technology with advanced bioinformatics to improve diagnostic accuracy
-                        and
-                        patient outcomes.</p>
+                    <p>Combining cutting-edge technology with advanced bioinformatics to improve diagnostic accuracy and patient outcomes through innovative testing methodologies.</p>
                 </li>
-                <li class="card">
+                <li class="card" role="listitem">
                     <h3>Genetic Engineering</h3>
-                    <p>Revolutionizing medicine through gene editing and personalized therapies.</p>
+                    <p>Revolutionizing medicine through precision gene editing and personalized therapies that target specific genetic markers and conditions.</p>
                 </li>
-                <li class="card">
+                <li class="card" role="listitem">
                     <h3>Bioelectronics</h3>
-                    <p>Integrating biology with electronics to create innovative healthcare solutions.</p>
+                    <p>Integrating biological systems with electronic components to create innovative healthcare solutions that bridge the gap between technology and medicine.</p>
                 </li>
             </ul>
         </section>
 
-        <!-- Featured Projects Section -->
-        <section id="featured-projects">
-            <h2>Join Us in Shaping the Future of Healthcare</h2>
-            <p>We're always looking for talented individuals to join our team and contribute to groundbreaking
-                innovations in biomedical engineering.</p>
-            <a href="#" class="btn">View Career Opportunities →</a>
+        <!-- Enhanced Contact Section -->
+        <section id="contact" aria-labelledby="contactTitle">
+            <h2 id="contactTitle">Get in Touch</h2>
+            <p>Ready to explore how our bioengineering solutions can benefit your organization? We would love to hear from you.</p>
+            
+            <form id="contactForm" class="contact-form" novalidate aria-labelledby="contactTitle">
+                <div class="form-group">
+                    <label for="name" class="form-label">Full Name *</label>
+                    <input type="text" id="name" name="name" class="form-input" required aria-describedby="nameError" autocomplete="name">
+                    <div id="nameError" class="form-error" role="alert" aria-live="polite"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="form-label">Email Address *</label>
+                    <input type="email" id="email" name="email" class="form-input" required aria-describedby="emailError" autocomplete="email">
+                    <div id="emailError" class="form-error" role="alert" aria-live="polite"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="organization" class="form-label">Organization</label>
+                    <input type="text" id="organization" name="organization" class="form-input" autocomplete="organization">
+                </div>
+
+                <div class="form-group">
+                    <label for="interest" class="form-label">Area of Interest</label>
+                    <select id="interest" name="interest" class="form-select">
+                        <option value="">Please select...</option>
+                        <option value="diagnostics">Advanced Diagnostics</option>
+                        <option value="genetic">Genetic Engineering</option>
+                        <option value="bioelectronics">Bioelectronics</option>
+                        <option value="general">General Inquiry</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message" class="form-label">Message *</label>
+                    <textarea id="message" name="message" class="form-textarea" rows="5" required aria-describedby="messageError" placeholder="Tell us about your project or inquiry..."></textarea>
+                    <div id="messageError" class="form-error" role="alert" aria-live="polite"></div>
+                </div>
+
+                <button type="submit" class="btn" id="submitBtn">
+                    Send Message
+                    <span aria-hidden="true">→</span>
+                </button>
+            </form>
+        </section>
+
+        <!-- Career Opportunities Section -->
+        <section id="careers" aria-labelledby="careersTitle">
+            <h2 id="careersTitle">Join Our Team</h2>
+            <p>We are always looking for talented individuals to join our team and contribute to groundbreaking innovations in biomedical engineering.</p>
+            <a href="#contact" class="btn">View Career Opportunities →</a>
         </section>
     </main>
 
-    <footer id="footer">
+    <footer id="footer" role="contentinfo">
         <hr>
 
-        <!-- Hidden Heading to Improve Accessibility -->
-        <h2>Site Information and Navigation Footer</h2>
+        <h2 class="sr-only">Site Information and Navigation Footer</h2>
 
         <div class="nav">
-            <!-- Wordmark and Theme Toggle -->
+            <!-- Enhanced Wordmark -->
             <div class="wordmark">
-                <img src="https://placehold.co/70" alt="Company Logo">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='70' height='70' viewBox='0 0 70 70'%3E%3Ccircle cx='35' cy='35' r='30' fill='%233b53cd'/%3E%3Ctext x='35' y='42' text-anchor='middle' fill='white' font-size='14' font-weight='bold'%3EBEA%3C/text%3E%3C/svg%3E" alt="Company Logo">
                 <p><strong>Bio And Engineering Solutions</strong></p>
                 <p>Building better lives through science and engineering</p>
-                <div class="toggleTheme">
-                    <input type="checkbox" id="toggleTheme" name="toggleTheme">
-                    <label for="toggleTheme">Toggle Theme</label>
-                </div>
             </div>
 
-            <!-- About Us Section -->
-            <nav>
+            <!-- Footer Navigation with proper ARIA -->
+            <nav aria-label="About us navigation">
                 <h3>About Us</h3>
                 <ul>
-                    <li><a href="#">Our Mission</a></li>
-                    <li><a href="#">Our Vision</a></li>
-                    <li><a href="#">Our Values</a></li>
-                    <li><a href="#">Employee Recognition</a></li>
-                    <li><a href="#">Leadership Team</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Non-Discrimination Policy</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="#mission">Our Mission</a></li>
+                    <li><a href="#vision">Our Vision</a></li>
+                    <li><a href="#values">Our Values</a></li>
+                    <li><a href="#recognition">Employee Recognition</a></li>
+                    <li><a href="#leadership">Leadership Team</a></li>
+                    <li><a href="#careers">Careers</a></li>
+                    <li><a href="#policies">Non-Discrimination Policy</a></li>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                    <li><a href="#terms">Terms of Use</a></li>
                 </ul>
             </nav>
     
-            <!-- Solutions Section -->
-            <nav>
+            <nav aria-label="Solutions navigation">
                 <h3>Our Solutions</h3>
                 <ul>
-                    <li><a href="#">Overview</a></li>
-                    <li><a href="#">Product Showcase</a></li>
-                    <li><a href="#">Projects</a></li>
-                    <li><a href="#">Services</a></li>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#products">Product Showcase</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#services">Services</a></li>
                 </ul>
             </nav>
     
-            <!-- Contact Information Section -->
-            <nav>
+            <nav aria-label="Contact information">
                 <h3>Contact Us</h3>
                 <ul>
                     <li>Email: <a href="mailto:info@beasolutions.org">info@beasolutions.org</a></li>
-                    <li>Phone: <a href="tel:+17207277828"><data value="7207277828">720-PASS-TAU</data></a> | <a
-                            href="tel:+17207277828">+1 (720) 727-7828</a></li>
-                    <li>Address:<address>8502 Forrest St. Highlands Ranch, CO, USA, 80126</address></li>
+                    <li>Phone: <a href="tel:+17207277828" aria-label="Call us at 720-727-7828">720-PASS-TAU</a> | <a href="tel:+17207277828">+1 (720) 727-7828</a></li>
+                    <li>Address: <address>8502 Forrest St.<br>Highlands Ranch, CO 80126<br>USA</address></li>
                 </ul>
             </nav>
-
-
-            
         </div>
         
         <hr>
 
-        <small>&copy; <time datetime="2025">2025</time> Bio And Engineering Solutions, <abbr
-                title="Limited Liability Company">LLC</abbr>. All rights reserved.</small>
+        <small>&copy; <time datetime="2025">2025</time> Bio And Engineering Solutions, <abbr title="Limited Liability Company">LLC</abbr>. All rights reserved.</small>
     </footer>
 
+    <!-- Enhanced Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -189,10 +923,19 @@
         "legalName": "Bio And Engineering Solutions, LLC",
         "url": "https://www.beasolutions.org/",
         "logo": "https://www.beasolutions.org/images/logo.png",
+        "description": "BEA Solutions pioneers innovations in advanced diagnostics, genetic engineering, and bioelectronics to create a healthier future.",
+        "foundingDate": "2020",
+        "industry": "Biotechnology",
+        "numberOfEmployees": {
+            "@type": "QuantitativeValue",
+            "value": "50-100"
+        },
         "contactPoint": {
             "@type": "ContactPoint",
             "telephone": "+1-720-727-7828",
-            "contactType": "customer service"
+            "contactType": "customer service",
+            "email": "info@beasolutions.org",
+            "availableLanguage": "English"
         },
         "address": {
             "@type": "PostalAddress",
@@ -201,8 +944,336 @@
             "addressRegion": "CO",
             "postalCode": "80126",
             "addressCountry": "USA"
+        },
+        "sameAs": [
+            "https://linkedin.com/company/beasolutions",
+            "https://twitter.com/beasolutions"
+        ],
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Bioengineering Solutions",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Advanced Diagnostics",
+                        "description": "Cutting-edge diagnostic technology and bioinformatics"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Genetic Engineering",
+                        "description": "Gene editing and personalized therapy solutions"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Bioelectronics",
+                        "description": "Integration of biology with electronic systems"
+                    }
+                }
+            ]
         }
     }
+    </script>
+
+    <!-- Screen Reader Only Content -->
+    <div class="sr-only">
+        <h2>Additional Information for Screen Readers</h2>
+        <p>This website is optimized for accessibility and supports keyboard navigation, screen readers, and other assistive technologies. Use the accessibility panel button to customize your viewing experience.</p>
+    </div>
+
+    <script>
+        // Enhanced Accessibility and Functionality
+        class AccessibilityManager {
+            constructor() {
+                this.init();
+            }
+
+            init() {
+                this.setupAccessibilityPanel();
+                this.setupThemeToggle();
+                this.setupFormValidation();
+                this.setupKeyboardNavigation();
+                this.setupReducedMotion();
+                this.loadUserPreferences();
+            }
+
+            setupAccessibilityPanel() {
+                const toggle = document.getElementById('accessibilityToggle');
+                const panel = document.getElementById('accessibilityPanel');
+
+                toggle.addEventListener('click', () => {
+                    const isOpen = panel.classList.contains('open');
+                    panel.classList.toggle('open');
+                    toggle.setAttribute('aria-expanded', !isOpen);
+                    panel.setAttribute('aria-hidden', isOpen);
+                });
+
+                // Close panel when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (!panel.contains(e.target) && panel.classList.contains('open')) {
+                        panel.classList.remove('open');
+                        toggle.setAttribute('aria-expanded', 'false');
+                        panel.setAttribute('aria-hidden', 'true');
+                    }
+                });
+
+                // Text size controls
+                document.getElementById('textSize').addEventListener('change', (e) => {
+                    this.setTextSize(e.target.value);
+                });
+
+                // High contrast toggle
+                document.getElementById('highContrast').addEventListener('change', (e) => {
+                    this.setHighContrast(e.target.checked);
+                });
+
+                // Reduced motion toggle
+                document.getElementById('reducedMotion').addEventListener('change', (e) => {
+                    this.setReducedMotion(e.target.checked);
+                });
+            }
+
+            setupThemeToggle() {
+                const themeToggle = document.getElementById('themeToggle');
+                
+                themeToggle.addEventListener('click', () => {
+                    const isPressed = themeToggle.getAttribute('aria-pressed') === 'true';
+                    const newTheme = isPressed ? 'light' : 'dark';
+                    
+                    this.setTheme(newTheme);
+                    themeToggle.setAttribute('aria-pressed', !isPressed);
+                });
+            }
+
+            setupFormValidation() {
+                const form = document.getElementById('contactForm');
+                const submitBtn = document.getElementById('submitBtn');
+
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.validateAndSubmitForm(form, submitBtn);
+                });
+
+                // Real-time validation
+                ['name', 'email', 'message'].forEach(fieldId => {
+                    const field = document.getElementById(fieldId);
+                    field.addEventListener('blur', () => this.validateField(field));
+                    field.addEventListener('input', () => this.clearFieldError(field));
+                });
+            }
+
+            setupKeyboardNavigation() {
+                // Enhanced focus management
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Tab') {
+                        document.body.classList.add('keyboard-navigation');
+                    }
+                });
+
+                document.addEventListener('mousedown', () => {
+                    document.body.classList.remove('keyboard-navigation');
+                });
+
+                // Skip link functionality
+                document.querySelectorAll('.skip-link').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const target = document.querySelector(link.getAttribute('href'));
+                        if (target) {
+                            target.focus();
+                            target.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    });
+                });
+            }
+
+            setupReducedMotion() {
+                const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+                
+                if (prefersReducedMotion.matches) {
+                    document.getElementById('reducedMotion').checked = true;
+                    this.setReducedMotion(true);
+                }
+
+                prefersReducedMotion.addEventListener('change', (e) => {
+                    document.getElementById('reducedMotion').checked = e.matches;
+                    this.setReducedMotion(e.matches);
+                });
+            }
+
+            setTextSize(size) {
+                document.documentElement.classList.remove('text-large', 'text-extra-large');
+                if (size !== 'normal') {
+                    document.documentElement.classList.add(`text-${size}`);
+                }
+                localStorage.setItem('textSize', size);
+            }
+
+            setHighContrast(enabled) {
+                document.documentElement.classList.toggle('high-contrast', enabled);
+                localStorage.setItem('highContrast', enabled);
+            }
+
+            setReducedMotion(enabled) {
+                document.documentElement.classList.toggle('reduce-motion', enabled);
+                localStorage.setItem('reducedMotion', enabled);
+            }
+
+            setTheme(theme) {
+                document.documentElement.setAttribute('data-theme', theme);
+                localStorage.setItem('theme', theme);
+                
+                // Announce theme change to screen readers
+                this.announceToScreenReader(`Switched to ${theme} theme`);
+            }
+
+            validateField(field) {
+                const value = field.value.trim();
+                const fieldName = field.name;
+                let isValid = true;
+                let errorMessage = '';
+
+                switch (fieldName) {
+                    case 'name':
+                        if (!value) {
+                            errorMessage = 'Name is required';
+                            isValid = false;
+                        }
+                        break;
+                    case 'email':
+                        if (!value) {
+                            errorMessage = 'Email is required';
+                            isValid = false;
+                        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+                            errorMessage = 'Please enter a valid email address';
+                            isValid = false;
+                        }
+                        break;
+                    case 'message':
+                        if (!value) {
+                            errorMessage = 'Message is required';
+                            isValid = false;
+                        } else if (value.length < 10) {
+                            errorMessage = 'Message must be at least 10 characters long';
+                            isValid = false;
+                        }
+                        break;
+                }
+
+                this.displayFieldError(field, errorMessage);
+                return isValid;
+            }
+
+            displayFieldError(field, message) {
+                const errorElement = document.getElementById(`${field.name}Error`);
+                errorElement.textContent = message;
+                errorElement.classList.toggle('visible', !!message);
+                field.setAttribute('aria-invalid', !!message);
+            }
+
+            clearFieldError(field) {
+                const errorElement = document.getElementById(`${field.name}Error`);
+                errorElement.textContent = '';
+                errorElement.classList.remove('visible');
+                field.setAttribute('aria-invalid', 'false');
+            }
+
+            async validateAndSubmitForm(form, submitBtn) {
+                const requiredFields = ['name', 'email', 'message'];
+                let isFormValid = true;
+
+                // Validate all required fields
+                requiredFields.forEach(fieldName => {
+                    const field = document.getElementById(fieldName);
+                    if (!this.validateField(field)) {
+                        isFormValid = false;
+                    }
+                });
+
+                if (!isFormValid) {
+                    this.announceToScreenReader('Please correct the errors in the form');
+                    return;
+                }
+
+                // Show loading state
+                submitBtn.classList.add('loading');
+                submitBtn.disabled = true;
+
+                try {
+                    // Simulate form submission
+                    await new Promise(resolve => setTimeout(resolve, 2000));
+                    
+                    this.announceToScreenReader('Message sent successfully');
+                    form.reset();
+                    
+                    // Show success message
+                    const successMessage = document.createElement('div');
+                    successMessage.className = 'success-message';
+                    successMessage.textContent = 'Thank you for your message. We will get back to you soon!';
+                    successMessage.setAttribute('role', 'alert');
+                    form.appendChild(successMessage);
+                    
+                    setTimeout(() => successMessage.remove(), 5000);
+                    
+                } catch (error) {
+                    this.announceToScreenReader('Error sending message. Please try again.');
+                } finally {
+                    submitBtn.classList.remove('loading');
+                    submitBtn.disabled = false;
+                }
+            }
+
+            announceToScreenReader(message) {
+                const announcement = document.createElement('div');
+                announcement.setAttribute('aria-live', 'polite');
+                announcement.setAttribute('aria-atomic', 'true');
+                announcement.className = 'sr-only';
+                announcement.textContent = message;
+                
+                document.body.appendChild(announcement);
+                setTimeout(() => announcement.remove(), 1000);
+            }
+
+            loadUserPreferences() {
+                // Load saved preferences
+                const savedTheme = localStorage.getItem('theme') || 'light';
+                const savedTextSize = localStorage.getItem('textSize') || 'normal';
+                const savedHighContrast = localStorage.getItem('highContrast') === 'true';
+                const savedReducedMotion = localStorage.getItem('reducedMotion') === 'true';
+
+                this.setTheme(savedTheme);
+                this.setTextSize(savedTextSize);
+                this.setHighContrast(savedHighContrast);
+                this.setReducedMotion(savedReducedMotion);
+
+                // Update form controls
+                document.getElementById('themeToggle').setAttribute('aria-pressed', savedTheme === 'dark');
+                document.getElementById('textSize').value = savedTextSize;
+                document.getElementById('highContrast').checked = savedHighContrast;
+                document.getElementById('reducedMotion').checked = savedReducedMotion;
+            }
+        }
+
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            new AccessibilityManager();
+        });
+
+        // Service Worker for offline functionality (optional)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => console.log('SW registered'))
+                    .catch(registrationError => console.log('SW registration failed'));
+            });
+        }
     </script>
 </body>
 
