@@ -533,6 +533,29 @@ class AccessibilityManager {
             }
         }, 1000);
     }
+    
+    detectSystemTheme() {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            return 'dark';
+        }
+        return 'light';
+    }
+
+    updateThemeControls(theme) {
+        const isDark = theme === 'dark';
+
+        // Update the accessibility panel toggle
+        const themeToggle = document.getElementById('themeToggle');
+        if (themeToggle) {
+            themeToggle.setAttribute('aria-pressed', isDark);
+        }
+
+        // Update the footer toggle for backward compatibility
+        const footerThemeToggle = document.getElementById('toggleTheme');
+        if (footerThemeToggle) {
+            footerThemeToggle.checked = isDark;
+        }
+    }
 
     loadUserPreferences() {
         try {
@@ -598,7 +621,7 @@ if (document.readyState === 'loading') {
 // Make the manager available globally for debugging
 window.accessibilityManager = accessibilityManager;
 
-// Service Worker registration for progressive enhancement (optional)
+// Service Worker registration for progressive enhancement
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('/sw.js')
