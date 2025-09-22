@@ -1,209 +1,509 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <!-- ======================================================= -->
     <!--            CORE BROWSER & SEO SETUP                     -->
     <!-- ======================================================= -->
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>BEA Solutions | Advanced Bioengineering & Diagnostics</title>
 
-    <meta name="description"
-        content="BEA Solutions pioneers innovations in advanced diagnostics, genetic engineering, and bioelectronics to create a healthier future. Explore our groundbreaking work.">
+    <meta
+      name="description"
+      content="BEA Solutions pioneers innovations in advanced diagnostics, genetic engineering, and bioelectronics to create a healthier future. Explore our groundbreaking work."
+    />
+
+    <!-- Enhanced Security -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data: https:; font-src 'self';"
+    />
 
     <!-- ======================================================= -->
     <!--            TECHNICAL SEO INSTRUCTIONS                   -->
     <!-- ======================================================= -->
 
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://www.beasolutions.org/">
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.beasolutions.org/" />
 
     <!-- ======================================================= -->
     <!--            FAVICONS & BROWSER/OS VISUALS                -->
     <!-- ======================================================= -->
 
-    <link rel="icon" href="/favicon.ico" sizes="any">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
     <!-- ======================================================= -->
     <!--            SOCIAL MEDIA SHARE CARDS                     -->
     <!-- ======================================================= -->
 
     <!-- Open Graph tags (for Facebook, LinkedIn, etc.) -->
-    <meta property="og:title" content="BEA Solutions | Advanced Bioengineering & Diagnostics">
-    <meta property="og:description"
-        content="BEA Solutions pioneers innovations in advanced diagnostics, genetic engineering, and bioelectronics.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.beasolutions.org/">
-    <meta property="og:image" content="https://www.beasolutions.org/images/social-share-image.jpg">
+    <meta
+      property="og:title"
+      content="BEA Solutions | Advanced Bioengineering & Diagnostics"
+    />
+    <meta
+      property="og:description"
+      content="BEA Solutions pioneers innovations in advanced diagnostics, genetic engineering, and bioelectronics."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.beasolutions.org/" />
+    <meta
+      property="og:image"
+      content="https://shakrunk.github.io/Test-Website/images/ShareCard.jpg"
+    />
 
     <!-- Twitter card tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="BEA Solutions | Advanced Bioengineering & Diagnostics">
-    <meta name="twitter:description"
-        content="BEA Solutions pioneers innovations in advanced diagnostics, genetic engineering, and bioelectronics.">
-    <meta name="twitter:image" content="https://www.beasolutions.org/images/social-share-image.jpg">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="BEA Solutions | Advanced Bioengineering & Diagnostics"
+    />
+    <meta
+      name="twitter:description"
+      content="BEA Solutions pioneers innovations in advanced diagnostics, genetic engineering, and bioelectronics."
+    />
+    <meta
+      name="twitter:image"
+      content="https://shakrunk.github.io/Test-Website/images/ShareCard.jpg"
+    />
 
     <!-- ======================================================= -->
     <!--            STYLESHEETS & FONTS                          -->
     <!-- ======================================================= -->
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/styles.css">
-</head>
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/accessibility.css" />
+  </head>
 
-<body>
+  <body>
+    <!-- Enhanced Skip Navigation -->
+    <a href="#main" id="skip2main" class="btn skip-link"
+      >Skip to Main Content</a
+    >
+    <a href="#footer" id="skip2footer" class="btn skip-link"
+      >Skip to Footer Navigation</a
+    >
+
+    <!-- Accessibility Panel -->
+    <div
+      class="accessibility-panel"
+      id="accessibilityPanel"
+      role="dialog"
+      aria-labelledby="accessibilityTitle"
+      aria-hidden="true"
+    >
+      <button
+        class="accessibility-toggle"
+        id="accessibilityToggle"
+        aria-expanded="false"
+        aria-controls="accessibilityPanel"
+      >
+        <span class="accessibility-icon" aria-hidden="true">⚙</span>
+        <span class="accessibility-text">Accessibility</span>
+      </button>
+
+      <!-- Skip link for accessibility panel when open -->
+      <!-- <a href="#accessibilityTitle" class="skip-link panel-skip-link" id="panelSkipLink">Skip to Accessibility Options</a> -->
+
+      <div class="accessibility-content">
+        <h2 id="accessibilityTitle">Accessibility Options</h2>
+
+        <div class="form-group">
+          <label for="textSize" class="form-label">Text Size</label>
+          <select
+            id="textSize"
+            class="form-select"
+            aria-describedby="textSizeDesc"
+          >
+            <option value="normal">Normal</option>
+            <option value="large">Large</option>
+            <option value="extra-large">Extra Large</option>
+          </select>
+          <p id="textSizeDesc" class="form-description">
+            Adjust text size for better readability
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label for="highContrast" class="form-label toggle-label"
+            >High Contrast Mode</label
+          >
+          <button
+            id="highContrast"
+            class="toggle-switch"
+            role="switch"
+            aria-pressed="false"
+            aria-describedby="contrastDesc"
+          >
+            <span class="sr-only">Toggle high contrast mode</span>
+          </button>
+          <p id="contrastDesc" class="form-description">
+            Increase contrast for better visibility
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label for="reducedMotion" class="form-label toggle-label"
+            >Reduce Motion</label
+          >
+          <button
+            id="reducedMotion"
+            class="toggle-switch"
+            role="switch"
+            aria-pressed="false"
+            aria-describedby="motionDesc"
+          >
+            <span class="sr-only">Toggle reduced motion</span>
+          </button>
+          <p id="motionDesc" class="form-description">
+            Minimize animations and transitions
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label for="themeToggle" class="form-label toggle-label"
+            >Dark Mode</label
+          >
+          <button
+            id="themeToggle"
+            class="toggle-switch"
+            role="switch"
+            aria-pressed="false"
+            aria-describedby="themeDesc"
+          >
+            <span class="sr-only">Toggle dark mode</span>
+          </button>
+          <p id="themeDesc" class="form-description">
+            Switch between light and dark themes
+          </p>
+        </div>
+      </div>
+    </div>
+
     <header>
-        <a href="#main" id="skip2main" class="btn">Skip to Main Content</a>
-        <a href="#footer" id="skip2footer" class="btn">Skip to Footer Navigation</a>
-        <h2><a href="/">Bio And Engineering Solutions</a></h2>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Our Solutions</a></li>
-                <li><a href="#">Contact Us</a></li>
-            </ul>
-        </nav>
+      <h2>
+        <a href="/"
+          ><img
+            src="images/Logo-Mono.svg"
+            alt="BEA Solutions Logo"
+            class="header-logo"
+          />Bio And Engineering Solutions</a
+        >
+      </h2>
+      <nav role="navigation" aria-label="Main navigation">
+        <ul>
+          <li><a href="#" aria-current="page">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#expertise">Our Solutions</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </nav>
     </header>
 
     <main id="main">
-        <!-- Hero Section -->
-        <section id="hero">
-            <div id="heroContent" class="card">
-                <img src="images/Logo-Light.svg" alt="Company Logo" id="heroLogo">
-                <div id="heroText">
-                    <h1>Bio And Engineering Solutions</h1>
-                    <p><em>Building better lives through science and engineering</em></p>
-                    <hr>
-                    <p>We are dedicated to improving the lives of people around the globe</p>
-                </div>
-            </div>
-            <a href="#" id="hero-btn" class="btn">Explore Our Solutions →</a>
-        </section>
+      <!-- Hero Section -->
+      <section id="hero" aria-labelledby="heroTitle">
+        <div id="heroContent" class="card">
+          <img
+            src="images/Logo-Light.svg"
+            alt="Company Logo"
+            id="heroLogo"
+            class="theme-responsive-logo"
+          />
+          <div id="heroText">
+            <h1 id="heroTitle">Bio And Engineering Solutions</h1>
+            <p>
+              <em>Building better lives through science and engineering</em>
+            </p>
+            <hr />
+            <p>
+              We are dedicated to improving the lives of people around the globe
+            </p>
+          </div>
+        </div>
+        <a href="#expertise" id="hero-btn" class="btn"
+          >Explore Our Solutions →</a
+        >
+      </section>
 
-        <!-- Our Expertise Section -->
-        <section id="expertise">
-            <h2>Our Expertise</h2>
-            <ul class="cardList">
-                <li class="card">
-                    <h3>Advanced Diagnostics</h3>
-                    <p>Combining cutting-edge technology with advanced bioinformatics to improve diagnostic accuracy
-                        and
-                        patient outcomes.</p>
-                </li>
-                <li class="card">
-                    <h3>Genetic Engineering</h3>
-                    <p>Revolutionizing medicine through gene editing and personalized therapies.</p>
-                </li>
-                <li class="card">
-                    <h3>Bioelectronics</h3>
-                    <p>Integrating biology with electronics to create innovative healthcare solutions.</p>
-                </li>
+      <!-- Our Expertise Section -->
+      <section id="expertise" aria-labelledby="expertiseTitle">
+        <h2 id="expertiseTitle">Our Expertise</h2>
+        <ul class="cardList">
+          <li class="card">
+            <h3>Advanced Diagnostics</h3>
+            <p>
+              Combining cutting-edge technology with advanced bioinformatics to
+              improve diagnostic accuracy and patient outcomes.
+            </p>
+          </li>
+          <li class="card">
+            <h3>Genetic Engineering</h3>
+            <p>
+              Revolutionizing medicine through gene editing and personalized
+              therapies.
+            </p>
+          </li>
+          <li class="card">
+            <h3>Bioelectronics</h3>
+            <p>
+              Integrating biology with electronics to create innovative
+              healthcare solutions.
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Enhanced Contact Section -->
+      <section id="contact" aria-labelledby="contactTitle">
+        <h2 id="contactTitle">Contact Us</h2>
+        <p>
+          Ready to explore how our bioengineering solutions can benefit your
+          organization? We would love to hear from you.
+        </p>
+
+        <!-- Fallback message for users with JavaScript disabled -->
+        <noscript>
+          <div class="noscript-message">
+            <p>
+              <strong>JavaScript Required:</strong> Our contact form requires
+              JavaScript to function properly. Please enable JavaScript in your
+              browser, or contact us directly:
+            </p>
+            <ul>
+              <li>
+                Email:
+                <a href="mailto:info@beasolutions.org">info@beasolutions.org</a>
+              </li>
+              <li>Phone: <a href="tel:+17207277828">+1 (720) 727-7828</a></li>
             </ul>
-        </section>
+          </div>
+        </noscript>
 
-        <!-- Featured Projects Section -->
-        <section id="featured-projects">
-            <h2>Join Us in Shaping the Future of Healthcare</h2>
-            <p>We're always looking for talented individuals to join our team and contribute to groundbreaking
-                innovations in biomedical engineering.</p>
-            <a href="#" class="btn">View Career Opportunities →</a>
-        </section>
+        <form
+          id="contactForm"
+          class="contact-form"
+          method="post"
+          action="/contact"
+          novalidate
+          aria-labelledby="contactTitle"
+        >
+          <div class="form-group">
+            <label for="name" class="form-label">Full Name *</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="form-input"
+              required
+              aria-describedby="nameError"
+              autocomplete="name"
+            />
+            <div
+              id="nameError"
+              class="form-error"
+              role="alert"
+              aria-live="polite"
+            ></div>
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="form-label">Email Address *</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-input"
+              required
+              aria-describedby="emailError"
+              autocomplete="email"
+            />
+            <div
+              id="emailError"
+              class="form-error"
+              role="alert"
+              aria-live="polite"
+            ></div>
+          </div>
+
+          <div class="form-group">
+            <label for="organization" class="form-label">Organization</label>
+            <input
+              type="text"
+              id="organization"
+              name="organization"
+              class="form-input"
+              autocomplete="organization"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="interest" class="form-label">Area of Interest</label>
+            <select id="interest" name="interest" class="form-select">
+              <option value="">Please select...</option>
+              <option value="diagnostics">Advanced Diagnostics</option>
+              <option value="genetic">Genetic Engineering</option>
+              <option value="bioelectronics">Bioelectronics</option>
+              <option value="general">General Inquiry</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message" class="form-label">Message *</label>
+            <textarea
+              id="message"
+              name="message"
+              class="form-textarea"
+              rows="5"
+              required
+              aria-describedby="messageError"
+              placeholder="Tell us about your project or inquiry..."
+            ></textarea>
+            <div
+              id="messageError"
+              class="form-error"
+              role="alert"
+              aria-live="polite"
+            ></div>
+          </div>
+
+          <button type="submit" class="btn" id="submitBtn" disabled>
+            Send Message
+            <span aria-hidden="true">→</span>
+          </button>
+        </form>
+      </section>
+
+      <!-- Featured Projects Section -->
+      <section id="featured-projects">
+        <h2>Join Us in Shaping the Future of Healthcare</h2>
+        <p>
+          We're always looking for talented individuals to join our team and
+          contribute to groundbreaking innovations in biomedical engineering.
+        </p>
+        <a href="#contact" class="btn">View Career Opportunities →</a>
+      </section>
     </main>
 
     <footer id="footer">
-        <hr>
+      <hr />
 
-        <!-- Hidden Heading to Improve Accessibility -->
-        <h2>Site Information and Navigation Footer</h2>
+      <!-- Hidden Heading to Improve Accessibility -->
+      <h2 class="sr-only">Site Information and Navigation Footer</h2>
 
-        <div class="nav">
-            <!-- Wordmark and Theme Toggle -->
-            <div class="wordmark">
-                <img src="https://placehold.co/70" alt="Company Logo">
-                <p><strong>Bio And Engineering Solutions</strong></p>
-                <p>Building better lives through science and engineering</p>
-                <div class="toggleTheme">
-                    <input type="checkbox" id="toggleTheme" name="toggleTheme">
-                    <label for="toggleTheme">Toggle Theme</label>
-                </div>
-            </div>
-
-            <!-- About Us Section -->
-            <nav>
-                <h3>About Us</h3>
-                <ul>
-                    <li><a href="#">Our Mission</a></li>
-                    <li><a href="#">Our Vision</a></li>
-                    <li><a href="#">Our Values</a></li>
-                    <li><a href="#">Employee Recognition</a></li>
-                    <li><a href="#">Leadership Team</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Non-Discrimination Policy</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Use</a></li>
-                </ul>
-            </nav>
-    
-            <!-- Solutions Section -->
-            <nav>
-                <h3>Our Solutions</h3>
-                <ul>
-                    <li><a href="#">Overview</a></li>
-                    <li><a href="#">Product Showcase</a></li>
-                    <li><a href="#">Projects</a></li>
-                    <li><a href="#">Services</a></li>
-                </ul>
-            </nav>
-    
-            <!-- Contact Information Section -->
-            <nav>
-                <h3>Contact Us</h3>
-                <ul>
-                    <li>Email: <a href="mailto:info@beasolutions.org">info@beasolutions.org</a></li>
-                    <li>Phone: <a href="tel:+17207277828"><data value="7207277828">720-PASS-TAU</data></a> | <a
-                            href="tel:+17207277828">+1 (720) 727-7828</a></li>
-                    <li>Address:<address>8502 Forrest St. Highlands Ranch, CO, USA, 80126</address></li>
-                </ul>
-            </nav>
-
-
-            
+      <div class="nav">
+        <!-- Wordmark and Theme Toggle -->
+        <div class="wordmark">
+          <img src="images/Logo-Mono.svg" alt="Company Logo" />
+          <p><strong>Bio And Engineering Solutions</strong></p>
+          <p>Building better lives through science and engineering</p>
+          <div class="toggleTheme">
+            <input type="checkbox" id="toggleTheme" name="toggleTheme" />
+            <label for="toggleTheme">Toggle Theme</label>
+          </div>
         </div>
-        
-        <hr>
 
-        <small>&copy; <time datetime="2025">2025</time> Bio And Engineering Solutions, <abbr
-                title="Limited Liability Company">LLC</abbr>. All rights reserved.</small>
+        <!-- About Us Section -->
+        <nav aria-label="About us navigation">
+          <h3>About Us</h3>
+          <ul>
+            <li><a href="#">Our Mission</a></li>
+            <li><a href="#">Our Vision</a></li>
+            <li><a href="#">Our Values</a></li>
+            <li><a href="#">Employee Recognition</a></li>
+            <li><a href="#">Leadership Team</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Non-Discrimination Policy</a></li>
+          </ul>
+        </nav>
+
+        <!-- Solutions Section -->
+        <nav aria-label="Solutions navigation">
+          <h3>Our Solutions</h3>
+          <ul>
+            <li><a href="#">Overview</a></li>
+            <li><a href="#">Product Showcase</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Services</a></li>
+          </ul>
+        </nav>
+
+        <!-- Contact Information Section -->
+        <nav aria-label="Contact information">
+          <h3>Contact Us</h3>
+          <ul>
+            <li>
+              Email:
+              <a href="mailto:info@beasolutions.org">info@beasolutions.org</a>
+            </li>
+            <li>
+              Phone:
+              <a href="tel:+17207277828"
+                ><data value="7207277828">720-PASS-TAU</data></a
+              >
+              | <a href="tel:+17207277828">+1 (720) 727-7828</a>
+            </li>
+            <li>
+              Address:
+              <address>
+                8502 Forrest St. Highlands Ranch, CO, USA, 80126
+              </address>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <hr />
+
+      <small
+        >&copy; <time datetime="2025">2025</time> Bio And Engineering Solutions,
+        <abbr title="Limited Liability Company">LLC</abbr>. All rights reserved.
+        | <a href="#privacy">Privacy Policy</a> |
+        <a href="#terms">Terms of Use</a>
+      </small>
     </footer>
 
+    <!-- Enhanced Structured Data -->
     <script type="application/ld+json">
-    {
+      {
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "Bio And Engineering Solutions",
         "legalName": "Bio And Engineering Solutions, LLC",
         "url": "https://www.beasolutions.org/",
         "logo": "https://www.beasolutions.org/images/logo.png",
+        "description": "BEA Solutions pioneers innovations in advanced diagnostics, genetic engineering, and bioelectronics to create a healthier future.",
         "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+1-720-727-7828",
-            "contactType": "customer service"
+          "@type": "ContactPoint",
+          "telephone": "+1-720-727-7828",
+          "contactType": "customer service",
+          "email": "info@beasolutions.org"
         },
         "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "8502 Forrest St.",
-            "addressLocality": "Highlands Ranch",
-            "addressRegion": "CO",
-            "postalCode": "80126",
-            "addressCountry": "USA"
+          "@type": "PostalAddress",
+          "streetAddress": "8502 Forrest St.",
+          "addressLocality": "Highlands Ranch",
+          "addressRegion": "CO",
+          "postalCode": "80126",
+          "addressCountry": "USA"
         }
-    }
+      }
     </script>
-</body>
 
+    <!-- Screen Reader Only Content -->
+    <div class="sr-only">
+      <h2>Additional Information for Screen Readers</h2>
+      <p>
+        This website is optimized for accessibility and supports keyboard
+        navigation, screen readers, and other assistive technologies. Use the
+        accessibility panel button to customize your viewing experience.
+      </p>
+    </div>
+
+    <script src="js/accessibility.js"></script>
+  </body>
 </html>
