@@ -414,9 +414,17 @@ header > h2 > a:hover {
 }
 
 header nav {
-  max-width: var(--max-width-container);
-  margin: 0 auto;
-  padding: 0 var(--space-4);
+  margin: 0;
+  padding: 0;
+  position: absolute;
+}
+
+@media (min-width: 768px) {
+  header nav {
+    max-width: var(--max-width-container);
+    padding: 0 var(--space-4);
+    position: inherit;
+  }
 }
 
 header nav ul {
