@@ -1,5 +1,5 @@
 /* ======================================================= */
-/*                    CSS CUSTOM PROPERTIES                */
+/*                  CSS CUSTOM PROPERTIES                  */
 /* ======================================================= */
 
 :root {
@@ -49,8 +49,8 @@
 
   /* Background Colors */
   --color-bg-primary: var(--color-white);
-  --color-bg-secondary: var(--color-gray-50);
-  --color-bg-accent: var(--color-gray-100);
+  --color-bg-secondary: var(--color-gray-100);
+  --color-bg-accent: var(--color-gray-200);
 
   /* Typography */
   --font-family-primary: "Segoe UI", -apple-system, BlinkMacSystemFont,
@@ -135,7 +135,7 @@
 }
 
 /* ======================================================= */
-/*                    GLOBAL STYLES                        */
+/*                      GLOBAL STYLES                      */
 /* ======================================================= */
 
 *,
@@ -170,7 +170,7 @@ main {
 }
 
 /* ======================================================= */
-/*                    TYPOGRAPHY                           */
+/*                        TYPOGRAPHY                       */
 /* ======================================================= */
 
 h1,
@@ -250,9 +250,8 @@ hr {
 }
 
 /* ======================================================= */
-/*                    LINKS & BUTTONS                      */
+/*                     LINKS & BUTTONS                     */
 /* ======================================================= */
-
 a {
   color: var(--color-primary);
   text-decoration: none;
@@ -260,15 +259,9 @@ a {
 }
 
 a:hover,
-a:focus {
+a:focus-visible {
   color: var(--color-primary-dark);
   text-decoration: underline;
-}
-
-a:focus {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
-  border-radius: var(--radius-sm);
 }
 
 .btn {
@@ -289,7 +282,7 @@ a:focus {
 }
 
 .btn:hover,
-.btn:focus {
+.btn:focus-visible {
   background: var(--color-primary-dark);
   border-color: var(--color-primary-dark);
   color: var(--color-white);
@@ -304,8 +297,7 @@ a:focus {
 }
 
 /* Skip Links for Accessibility */
-#skip2main,
-#skip2footer {
+.skip-link {
   position: absolute;
   top: -1000px;
   left: var(--space-4);
@@ -315,33 +307,84 @@ a:focus {
   font-size: var(--font-size-sm);
   border-radius: var(--radius-md);
   z-index: 1000;
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  transition: top var(--transition-fast);
 }
 
-#skip2main:focus,
-#skip2footer:focus {
+.skip-link:focus {
   top: var(--space-4);
+  text-decoration: none;
+  color: var(--color-white);
 }
 
 /* ======================================================= */
-/*                    HEADER NAVIGATION                    */
+/*                          HEADER                         */
 /* ======================================================= */
-
 header {
-  background: var(--color-bg-primary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  padding: var(--space-4);
+
+  /* background: var(--color-bg-primary);
   border-bottom: 1px solid var(--color-gray-200);
   padding: var(--space-4) 0;
   position: sticky;
   top: 0;
   z-index: 100;
   backdrop-filter: blur(10px);
-  transition: all var(--transition-normal);
+  transition: all var(--transition-normal); */
 }
 
 header > h2 {
   margin: 0;
-  padding: 0 var(--space-4);
+  /* padding: 0 var(--space-4);
   max-width: var(--max-width-container);
-  margin: 0 auto var(--space-4);
+  margin: 0 auto var(--space-4); */
+}
+
+.header-logo {
+  width: 24px;
+  height: 24px;
+  margin-right: var(--space-2);
+  vertical-align: middle;
+  transition: color var(--transition-fast);
+}
+
+.menu-toggle {
+  display: none; /* Hidden by default */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-2);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 101; /* Ensure it's above other header content */
+}
+
+.hamburger-bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: var(--color-text-primary);
+  border-radius: var(--radius-sm);
+  transition: transform var(--transition-normal),
+    opacity var(--transition-normal);
+}
+
+/* Animate hamburger to an 'X' when open */
+.menu-toggle[aria-expanded="true"] .hamburger-bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.menu-toggle[aria-expanded="true"] .hamburger-bar:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle[aria-expanded="true"] .hamburger-bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
 }
 
 header > h2 > a {
@@ -380,16 +423,50 @@ header nav a {
 }
 
 header nav a:hover,
-header nav a:focus {
+header nav a:focus-visible {
   color: var(--color-primary);
   background: var(--color-bg-accent);
   text-decoration: none;
 }
 
-/* ======================================================= */
-/*                    MAIN CONTENT SECTIONS                */
-/* ======================================================= */
+@media (max-width: 767px) {
+  header nav ul {
+    display: none; /* Hide nav links by default on mobile */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--color-bg-primary);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-8);
+    z-index: 100;
+  }
 
+  header nav ul.nav-open {
+    display: flex; /* Show the menu when toggled */
+  }
+
+  header nav a {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none; /* Hide hamburger on desktop */
+  }
+
+  header nav ul {
+    display: flex; /* Ensure nav is visible on desktop */
+  }
+}
+
+/* ======================================================= */
+/*                  MAIN CONTENT SECTIONS                  */
+/* ======================================================= */
 section {
   padding: var(--space-16) var(--space-4);
   max-width: var(--max-width-container);
@@ -495,6 +572,7 @@ section {
   margin: var(--space-16) auto;
   position: relative;
   overflow: hidden;
+  max-width: 90%;
 }
 
 #featured-projects::before {
@@ -527,9 +605,8 @@ section {
 }
 
 /* ======================================================= */
-/*                    CARD COMPONENTS                      */
+/*                     CARD COMPONENTS                     */
 /* ======================================================= */
-
 .card {
   background: var(--color-bg-primary);
   border: 1px solid var(--color-gray-200);
@@ -585,9 +662,8 @@ section {
 }
 
 /* ======================================================= */
-/*                         FOOTER                          */
+/*                          FOOTER                         */
 /* ======================================================= */
-
 footer {
   background: var(--color-bg-secondary);
   padding: var(--space-12) var(--space-4) var(--space-6);
@@ -614,6 +690,7 @@ footer {
   gap: var(--space-4);
   text-decoration: none;
   margin-bottom: var(--space-4);
+  color: var(--color-text-primary);
 }
 
 .wordmark-logo {
@@ -719,7 +796,7 @@ footer nav address {
 }
 
 .social-links a:hover,
-.social-links a:focus {
+.social-links a:focus-visible {
   color: var(--color-primary);
   text-decoration: none;
 }
@@ -735,7 +812,7 @@ footer nav address {
 }
 
 .footer-bottom a:hover,
-.footer-bottom a:focus {
+.footer-bottom a:focus-visible {
   color: var(--color-primary);
   text-decoration: underline;
 }
@@ -751,7 +828,6 @@ footer nav address {
 /* ======================================================= */
 /*                    RESPONSIVE DESIGN                    */
 /* ======================================================= */
-
 @media (max-width: 768px) {
   :root {
     --space-16: 3rem;
@@ -812,9 +888,8 @@ footer nav address {
 }
 
 /* ======================================================= */
-/*                    PRINT STYLES                         */
+/*                       PRINT STYLES                      */
 /* ======================================================= */
-
 @media print {
   *,
   *::before,
@@ -861,9 +936,8 @@ footer nav address {
 }
 
 /* ======================================================= */
-/*                    ACCESSIBILITY ENHANCEMENTS          */
+/*               ACCESSIBILITY ENHANCEMENTS                */
 /* ======================================================= */
-
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -875,28 +949,23 @@ footer nav address {
   }
 }
 
-@media (prefers-contrast: high) {
-  :root {
-    --color-primary: #000080;
-    --color-secondary: #006400;
-    --color-gray-300: #666666;
-    --color-gray-400: #4a4a4a;
-  }
-
-  .btn {
-    border-width: 3px;
-  }
-
-  .card {
-    border-width: 2px;
-  }
-}
-
 /* Focus indicators for better keyboard navigation */
 :focus-visible {
   outline: 3px solid var(--color-primary);
   outline-offset: 2px;
   border-radius: var(--radius-sm);
+}
+
+/* Fallback for older browsers, if needed */
+:focus {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Remove outline for non-keyboard focus */
+:focus:not(:focus-visible) {
+  outline: none;
 }
 
 /* Ensure sufficient color contrast for text */

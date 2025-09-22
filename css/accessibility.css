@@ -1,5 +1,5 @@
 /* ======================================================= */
-/*                    ACCESSIBILITY ENHANCEMENTS           */
+/*               ACCESSIBILITY ENHANCEMENTS                */
 /* ======================================================= */
 
 /* Screen Reader Only Content */
@@ -15,35 +15,8 @@
   border: 0;
 }
 
-/* Enhanced Focus Indicators */
-:focus-visible {
-  outline: 3px solid var(--color-primary);
-  outline-offset: 2px;
-  border-radius: var(--radius-sm);
-}
-
-/* Skip Links Enhancement */
-.skip-link {
-  position: absolute;
-  top: -1000px;
-  left: var(--space-4);
-  background: var(--color-primary);
-  color: var(--color-white);
-  padding: var(--space-2) var(--space-4);
-  font-size: var(--font-size-sm);
-  border-radius: var(--radius-md);
-  z-index: 1000;
-  text-decoration: none;
-  font-weight: var(--font-weight-medium);
-  transition: top var(--transition-fast);
-}
-
-.skip-link:focus {
-  top: var(--space-4);
-}
-
 /* ======================================================= */
-/*                    HEADER & LOGO STYLING                */
+/*                  HEADER & LOGO STYLING                  */
 /* ======================================================= */
 
 .header-logo {
@@ -66,7 +39,7 @@
 }
 
 /* ======================================================= */
-/*                    ACCESSIBILITY PANEL                  */
+/*                   ACCESSIBILITY PANEL                   */
 /* ======================================================= */
 
 .accessibility-panel {
@@ -85,8 +58,7 @@
   overflow: visible;
 }
 
-.accessibility-panel.open,
-.accessibility-panel:focus-within {
+.accessibility-panel.open {
   right: 0;
 }
 
@@ -144,25 +116,6 @@
   margin-bottom: var(--space-6);
   color: var(--color-text-primary);
   font-size: var(--font-size-xl);
-}
-
-/* Panel skip link */
-.panel-skip-link {
-  position: absolute;
-  top: -1000px;
-  left: var(--space-4);
-  background: var(--color-primary);
-  color: var(--color-white);
-  padding: var(--space-2) var(--space-4);
-  font-size: var(--font-size-sm);
-  border-radius: var(--radius-md);
-  z-index: 1002;
-  text-decoration: none;
-  font-weight: var(--font-weight-medium);
-}
-
-.accessibility-panel:focus-within .panel-skip-link {
-  top: var(--space-4);
 }
 
 /* ======================================================= */
@@ -236,7 +189,7 @@
 }
 
 /* ======================================================= */
-/*                    TOGGLE SWITCH STYLING                */
+/*                   TOGGLE SWITCH STYLING                 */
 /* ======================================================= */
 
 .toggle-switch {
@@ -278,55 +231,8 @@
   outline-offset: 2px;
 }
 
-/* Theme Toggle (for backward compatibility) */
-.theme-toggle-wrapper {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  margin: var(--space-4) 0;
-}
-
-.theme-toggle {
-  position: relative;
-  width: 50px;
-  height: 26px;
-  background: var(--color-gray-300);
-  border-radius: 13px;
-  cursor: pointer;
-  transition: background var(--transition-normal);
-  border: none;
-  padding: 0;
-  flex-shrink: 0;
-}
-
-.theme-toggle[aria-pressed="true"] {
-  background: var(--color-primary);
-}
-
-.theme-toggle::before {
-  content: "";
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 22px;
-  height: 22px;
-  background: var(--color-white);
-  border-radius: 50%;
-  transition: transform var(--transition-normal);
-  box-shadow: var(--shadow-sm);
-}
-
-.theme-toggle[aria-pressed="true"]::before {
-  transform: translateX(24px);
-}
-
-.theme-toggle:focus-visible {
-  outline: 3px solid var(--color-primary);
-  outline-offset: 2px;
-}
-
 /* ======================================================= */
-/*                    CONTACT FORM                         */
+/*                       CONTACT FORM                      */
 /* ======================================================= */
 
 .contact-form {
@@ -423,7 +329,7 @@
 }
 
 /* ======================================================= */
-/*                    ACCESSIBILITY PREFERENCES            */
+/*                ACCESSIBILITY PREFERENCES                */
 /* ======================================================= */
 
 /* Text Size Adjustments */
@@ -467,7 +373,10 @@
   font-weight: var(--font-weight-bold);
 }
 
-.high-contrast .card {
+.high-contrast .card,
+.high-contrast .form-input,
+.high-contrast .form-select,
+.high-contrast .form-textarea {
   border-width: 2px;
   border-color: var(--color-text-primary);
 }
@@ -483,7 +392,7 @@
 }
 
 /* ======================================================= */
-/*                    RESPONSIVE ACCESSIBILITY             */
+/*                 RESPONSIVE ACCESSIBILITY                */
 /* ======================================================= */
 
 @media (max-width: 768px) {
@@ -526,13 +435,12 @@
 }
 
 /* ======================================================= */
-/*                    PRINT ACCESSIBILITY                  */
+/*                  PRINT ACCESSIBILITY                    */
 /* ======================================================= */
 
 @media print {
   .accessibility-panel,
-  .accessibility-toggle,
-  .skip-link {
+  .accessibility-toggle {
     display: none !important;
   }
 
@@ -550,7 +458,7 @@
 }
 
 /* ======================================================= */
-/*                    KEYBOARD NAVIGATION                  */
+/*                   KEYBOARD NAVIGATION                   */
 /* ======================================================= */
 
 .keyboard-navigation *:focus-visible {
@@ -559,25 +467,13 @@
   border-radius: var(--radius-sm) !important;
 }
 
-/* Ensure all interactive elements have proper focus indicators */
-button:focus-visible,
-a:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
-  outline: 3px solid var(--color-primary);
-  outline-offset: 2px;
-  border-radius: var(--radius-sm);
-}
-
 /* Enhanced touch targets for mobile */
 @media (pointer: coarse) {
   .btn,
   .form-input,
   .form-select,
   .form-textarea,
-  .accessibility-toggle,
-  .theme-toggle {
+  .accessibility-toggle {
     min-height: 44px;
     min-width: 44px;
   }
