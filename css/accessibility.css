@@ -44,14 +44,14 @@
 
 .accessibility-panel {
   position: fixed;
-  bottom: 5%;
+  top: 7%;
   right: -300px;
   width: 300px;
   max-height: 70vh;
   background: var(--color-bg-primary);
-  border: 2px solid var(--color-gray-300);
+  border: 2px solid var(--color-bg-secondary-glass);
   border-right: none;
-  border-radius: var(--radius-lg) 0 0 0;
+  border-radius: 0 0 0 var(--radius-lg);
   box-shadow: var(--shadow-xl);
   z-index: 1000;
   transition: right var(--transition-normal);
@@ -64,24 +64,25 @@
 
 .accessibility-toggle {
   position: absolute;
-  left: -70px;
-  bottom: 0;
-  width: 70px;
-  height: 70px;
+  left: -40px;
+  top: -1.7px;
+  width: 40px;
+  height: 110px;
   background: var(--color-primary);
   color: var(--color-white);
-  border: none;
+  border: 2px solid var(--color-bg-secondary-glass);
+  border-right: none;
   border-radius: var(--radius-lg) 0 0 var(--radius-lg);
   cursor: pointer;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   align-items: center;
   justify-content: center;
   gap: var(--space-1);
   transition: background-color var(--transition-fast);
-  box-shadow: var(--shadow-md);
+  box-shadow: none;
   padding: var(--space-2);
-  z-index: 1001;
+  z-index: 1000;
 }
 
 .accessibility-toggle:hover {
@@ -96,13 +97,17 @@
 .accessibility-icon {
   font-size: var(--font-size-lg);
   line-height: 1;
+  margin-right: 10px;
 }
 
 .accessibility-text {
   font-size: var(--font-size-xs);
-  line-height: 1.2;
+  line-height: 1;
   text-align: center;
+  margin-right: 10px;
   font-weight: var(--font-weight-medium);
+  writing-mode: sideways-lr;
+  text-orientation: sideways;
 }
 
 .accessibility-content {

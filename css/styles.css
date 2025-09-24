@@ -41,6 +41,10 @@
   --color-gray-700: #334155;
   --color-gray-800: #1e293b;
   --color-gray-900: #0f172a;
+  --color-white-glass: #ffffffb0;
+  --color-gray-100-glass: #f1f5f99f;
+  --color-gray-800-glass: #1e293b9f;
+  --color-gray-900-glass: #0f172ab0;
 
   /* Text Colors */
   --color-text-primary: var(--color-gray-900);
@@ -49,8 +53,9 @@
 
   /* Background Colors */
   --color-bg-primary: var(--color-white);
-  --color-bg-primary-glass: #ffffffb0;
+  --color-bg-primary-glass: var(--color-white-glass);
   --color-bg-secondary: var(--color-gray-100);
+  --color-bg-secondary-glass: var(--color-gray-100-glass);
   --color-bg-accent: var(--color-gray-200);
 
   /* Typography */
@@ -126,6 +131,8 @@
   --color-bg-primary: var(--color-gray-900);
   --color-bg-secondary: var(--color-gray-800);
   --color-bg-accent: var(--color-gray-700);
+  --color-bg-primary-glass: var(--color-gray-900-glass);
+  --color-bg-secondary-glass: var(--color-gray-800-glass);
 
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
@@ -335,7 +342,8 @@ header {
   transition: all var(--transition-normal);
   top: 0;
   z-index: 100;
-  border-bottom: 1px solid var(--color-gray-200);
+  border-bottom: 1px solid var(--color-bg-secondary-glass);
+  box-shadow: var(--shadow-sm);
 }
 
 .full-name {
@@ -385,17 +393,18 @@ header > h2 {
   background-color: var(--color-text-primary);
   border-radius: var(--radius-sm);
   transition: transform var(--transition-normal),
-    opacity var(--transition-normal);
+    opacity var(--transition-normal), width var(--transition-normal);
 }
 
 /* Animate hamburger to an 'X' when open */
-.menu-toggle[aria-expanded="true"] .hamburger-bar:nth-child(1) {
+.menu-toggle[aria-expanded="true"] .hamburger-bar:nth-child(2) {
   transform: translateY(8px) rotate(45deg);
 }
-.menu-toggle[aria-expanded="true"] .hamburger-bar:nth-child(2) {
-  opacity: 0;
-}
 .menu-toggle[aria-expanded="true"] .hamburger-bar:nth-child(3) {
+  opacity: 0;
+  width: 0;
+}
+.menu-toggle[aria-expanded="true"] .hamburger-bar:nth-child(4) {
   transform: translateY(-8px) rotate(-45deg);
 }
 
